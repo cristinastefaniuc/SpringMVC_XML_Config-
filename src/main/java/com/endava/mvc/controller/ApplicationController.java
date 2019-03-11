@@ -1,15 +1,18 @@
 package com.endava.mvc.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @RequestMapping("/")
+@Controller
+@EnableWebMvc
 public class ApplicationController {
 
-    @GetMapping("/")
+    @RequestMapping(value = "/", method = GET)
     public String showHomePage() {
         return "home";
     }
@@ -19,10 +22,4 @@ public class ApplicationController {
         if(answer.equals("YES")) return "yes";
         else return "no";
     }
-
-//    @RequestMapping(value = "/SpringMVC_XMLConfig_war_exploded", method = GET)
-//    public String showForm(@RequestParam("answer") String answer) {
-//        if(answer.equals("YES")) return "yes";
-//        else return "no";
-//    }
 }
